@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import Test from './test/testVuex'
+import DataSource from './datasource/datasource'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -11,7 +12,8 @@ export default new Vuex.Store({
   actions: {
   },
   modules: {
-    Test
+    Test,
+    DataSource
   },
   getters: {
   }

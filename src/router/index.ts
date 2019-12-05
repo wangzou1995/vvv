@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import DragLayout from '../components/DragLayout.vue'
+import Draggable from '@/components/Draggable.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -14,6 +15,11 @@ const routes = [
     path: '/dl',
     name: 'DragLayout',
     component: DragLayout
+  },
+  {
+    path: '/dg',
+    name: 'Draggable',
+    component: Draggable
   },
   {
     path: '/about',
