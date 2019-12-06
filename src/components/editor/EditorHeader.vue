@@ -1,10 +1,13 @@
 <template>
+  <div>
+    Header
+  </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 
-@Component
+  @Component
 export default class EditorHeader extends Vue {
   // props
   // data

@@ -1,4 +1,7 @@
 <template>
+  <a-Sider>
+    Sider
+  </a-Sider>
 </template>
 
 <script lang="ts">

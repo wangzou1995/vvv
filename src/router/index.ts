@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import DragLayout from '../components/DragLayout.vue'
 import Draggable from '@/components/Draggable.vue'
+import EditorPage from '@/views/EditorPage.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -20,6 +21,11 @@ const routes = [
     path: '/dg',
     name: 'Draggable',
     component: Draggable
+  },
+  {
+    path: '/ep',
+    name: 'EditorPage',
+    component: EditorPage
   },
   {
     path: '/about',
