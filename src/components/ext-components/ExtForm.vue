@@ -1,5 +1,5 @@
 <template>
-  <div class="form-border">
+  <div class="form-border" @mouseover.stop="hoverStyle(1)" @mouseout.stop="hoverStyle(0)" ref="formBorder">
   <a-form class="ext-form" labelAlign="right" layout="inline">
     <vvv-drag :list="formItems" group="demo" :class="formItems.length > 0 ? 'drag-from' : 'drag-from-empty'">
       <template v-for="(item, index) in formItems"  :label="item.name">
@@ -17,6 +17,12 @@ export default class ExtForm extends Vue {
   @PropSync('items') formItems!:Array<object>
   // data
   // methods
+  private hoverStyle (type: number) {
+    let vm = this
+    let borderObj : HTMLElement = vm.$refs.formBorder as HTMLElement
+    borderObj.setAttribute('style', type === 1 ? 'border: 1px black solid' : 'border: 1px hidden')
+    console.log(borderObj)
+  }
   // computed
 }
 </script>
@@ -36,11 +42,8 @@ export default class ExtForm extends Vue {
   }
   .form-border {
     height: 100%;
+    border: 1px hidden;
+    padding: 10px;
     /*pointer-events: none;*/
-  }
-  .form-border :hover {
-      border: 1px blue solid;
-      /*使用z-index可以让他在有相对定位的情况下选中它也能让边框浮起来*/
-      z-index: 1;
   }
 </style>

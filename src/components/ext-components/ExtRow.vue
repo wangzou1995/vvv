@@ -1,5 +1,5 @@
 <template>
-  <div style="height: 100%">
+  <div style="height: 100%" ref="rowBorder" @mouseover.stop="hoverStyle(1)" @mouseout.stop="hoverStyle(0)">
   <Row  class="drag-row">
     <vvv-drag :list="colItems" group="demo" :class="colItems.length > 0 ? 'drag-row' : 'drag-row-empty'">
       <template v-for="(item, index) in colItems"   :label="item.name">
@@ -19,8 +19,14 @@ import { Row } from 'ant-design-vue'
 export default class ExtRow extends Vue {
   // props
       @PropSync('items') colItems!:Array<object>
-  // data
-  // methods
+      // data
+      // methods
+      private hoverStyle (type: number) {
+        let vm = this
+        let borderObj : HTMLElement = vm.$refs.rowBorder as HTMLElement
+        borderObj.setAttribute('style', type === 1 ? 'border: 1px black solid' : 'border: 1px hidden')
+        console.log(borderObj)
+      }
   // computed
 }
 </script>
@@ -28,10 +34,8 @@ export default class ExtRow extends Vue {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
   .drag-row {
-    border: 1px silver dashed;
   }
   .drag-row-empty {
     height: 80px;
-    border: 1px sienna dashed;
   }
 </style>
